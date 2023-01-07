@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>인벤 섯다 시뮬레이터</title>
+	<style>
+	</style>
+</head>
+<body>
+    <h1>인벤 섯다 시뮬레이터</h1>
+	<hr>
+    <br>
+    <div>
+        <div style="position: absolute;">
+        <div style="position: relative;"><img id="bbang" src="" width="400" height="400"></img>
+        </div>
+        </div>
+        <div style="position: absolute;">
+        <div style="position: relative;"><img id="desf" height="400" weight="400" src=""></img>
+        </div>
+        </div>
+        <div style="position: absolute;">
+        <div style="position: relative; top: 410px;">
+                <pre id="res">\n</pre>
+                <pre id="result"></pre>
+                <button onclick = 'calulate()' type="button">실행</button>
+                <br><br>
+                
+                <br><br>
+                <img  width="400" height="600" src="suda.jpg">
+        </div>
+        </div>
+    </div>
+	<script>
+        document.getElementById("bbang").src = "bread.jpg";
+        document.getElementById('res').innerHTML= ' ';
+        document.getElementById('result').innerHTML= ' ';
+        function change(){
+            document.getElementById("desf").src = "bread.jpg";
+            document.getElementById("bbang").src = "black.jpg";
+	        setTimeout("sticker()",100);
+        }
+        function sticker(){
+	        document.getElementById("desf").src = "desfort.gif";
+        }
+
+        let naint;
+        let nuint;
+        let naseoul;
+        let nuseoul;
+
+
+        function calulate(){
+            change();
+            const na = Math.floor(Math.random()*100)+1;
+            const nu = Math.floor(Math.random()*100)+1;
+            naint = parseInt(na);
+            nuint = parseInt(nu);
+            document.getElementById('res').innerHTML= "나 = "+na+"   상대 = "+nu;
+            if ( isNaN(naint) || isNaN(nuint)){
+                document.getElementById('result').innerHTML= "정수를 입력해주세요";
+                return;
+            }
+            else if (naint > 100 || naint < 1 || nuint > 100 || nuint < 1){
+                document.getElementById('result').innerHTML= "1부터 100 사이 숫자를 입력해주세요";
+                return;
+            }
+            document.getElementById('result').innerHTML= vs();
+            
+        }
+        function vs(){
+
+            if((naint==47 || naint==74)&&(nuint==18)) return "암행어사 vs 일팔광땡! 나 승리!";
+            if((naint==47 || naint==74)&&(nuint==13)) return "암행어사 vs 일삼광땡! 나 승리!";
+
+            if((nuint==47 || nuint==74)&&(naint==18)) return "일팔광땡 vs 암행어사! 상대 승리!";
+            if((nuint==47 || nuint==74)&&(naint==13)) return "일삼광땡 vs 암행어사! 상대 승리!";
+
+            if((naint==37 || naint==73)&&(nuint==100)) return "땡잡이 vs 장땡! 나 승리! (실제 섯다에선 장땡 승리)";
+            if((naint==37 || naint==73)&&(nuint==99)) return "땡잡이 vs 9땡! 나 승리!";
+            if((naint==37 || naint==73)&&(nuint==88)) return "땡잡이 vs 8땡! 나 승리!";
+            if((naint==37 || naint==73)&&(nuint==77)) return "땡잡이 vs 7땡! 나 승리!";
+            if((naint==37 || naint==73)&&(nuint==66)) return "땡잡이 vs 6땡! 나 승리!";
+            if((naint==37 || naint==73)&&(nuint==55)) return "땡잡이 vs 5땡! 나 승리!";
+            if((naint==37 || naint==73)&&(nuint==44)) return "땡잡이 vs 4땡! 나 승리!";
+            if((naint==37 || naint==73)&&(nuint==33)) return "땡잡이 vs 4땡! 나 승리!";
+            if((naint==37 || naint==73)&&(nuint==22)) return "땡잡이 vs 2땡! 나 승리!";
+            if((naint==37 || naint==73)&&(nuint==11)) return "땡잡이 vs 1땡! 나 승리!";
+
+            if((nuint==37 || nuint==73)&&(naint==100)) return "장땡 vs 땡잡이! 상대 승리! (실제 섯다에선 장땡 승리)";
+            if((nuint==37 || nuint==73)&&(naint==99)) return "9땡 vs 땡잡이! 상대 승리!";
+            if((nuint==37 || nuint==73)&&(naint==88)) return "8땡 vs 땡잡이! 상대 승리!";
+            if((nuint==37 || nuint==73)&&(naint==77)) return "7땡 vs 땡잡이! 상대 승리!";
+            if((nuint==37 || nuint==73)&&(naint==66)) return "6땡 vs 땡잡이! 상대 승리!";
+            if((nuint==37 || nuint==73)&&(naint==55)) return "5땡 vs 땡잡이! 상대 승리!";
+            if((nuint==37 || nuint==73)&&(naint==44)) return "4땡 vs 땡잡이! 상대 승리!";
+            if((nuint==37 || nuint==73)&&(naint==33)) return "3땡 vs 땡잡이! 상대 승리!";
+            if((nuint==37 || nuint==73)&&(naint==22)) return "2땡 vs 땡잡이! 상대 승리!";
+            if((nuint==37 || nuint==73)&&(naint==11)) return "1땡 vs 땡잡이! 상대 승리!";
+
+            if(naint==49){
+                if(nuint == 38) return "멍구사 vs 삼팔광땡! 상대 승리";
+                else if(nuint == 18) return "멍구사 vs 일팔광땡! 상대 승리";
+                else if(nuint == 13) return "멍구사 vs 일삼광땡! 상대 승리";
+                else if(nuint == 100) return "멍구사 vs 장땡! 상대 승리! (실제 섯다에선 규칙에 따라 다름)";
+                else
+                    return "멍구사! 재경기!";
+
+            }
+            if (nuint==49){
+                if(naint == 38) return "삼팔광땡 vs 멍구사! 나 승리!";
+                else if(naint == 18) return "일팔광땡 vs 멍구사! 나 승리!";
+                else if(naint == 13) return "일삼광땡 vs 멍구사! 나 승리!";
+                else if(naint == 100) return "장땡 vs 멍구사! 나 승리! (실제 섯다에선 규칙에 따라 다름)";
+                else 
+                    return "멍구사! 재경기!";
+            }
+
+            if(naint==94){
+                if(nuint == 38) return "구사 vs 삼팔광땡! 상대 승리";
+                else if(nuint == 18) return "구사 vs 일팔광땡! 상대 승리";
+                else if(nuint == 13) return "구사 vs 일삼광땡! 상대 승리";
+                else if(nuint == 100) return "구사 vs 장땡! 상대 승리!";
+                else if (nuint ==99) return "구사 vs 9땡! 상대 승리!";
+                else if (nuint ==88) return "구사 vs 8땡! 상대 승리!";
+                else if (nuint ==77) return "구사 vs 7땡! 상대 승리!";
+                else if (nuint ==66) return "구사 vs 6땡! 상대 승리!";
+                else if (nuint ==55) return "구사 vs 5땡! 상대 승리!";
+                else if (nuint ==44) return "구사 vs 4땡! 상대 승리!";
+                else if (nuint ==33) return "구사 vs 3땡! 상대 승리!";
+                else if (nuint ==22) return "구사 vs 2땡! 상대 승리!";
+                else if (nuint ==11) return "구사 vs 1땡! 상대 승리!";
+                else
+                    return "구사! 재경기!";
+
+            }
+            if (nuint==49){
+                if(naint == 38) return "삼팔광땡 vs 구사! 나 승리!";
+                else if(naint == 18) return "일팔광땡 vs 구사! 나 승리!";
+                else if(naint == 13) return "일삼광땡 vs 구사! 나 승리!";
+                else if(naint == 100) return "장땡 vs 구사! 나 승리!";
+                else if (naint ==99) return "9땡 vs 구사! 상대 승리!";
+                else if (naint ==88) return "8땡 vs 구사! 상대 승리!";
+                else if (naint ==77) return "7땡 vs 구사! 상대 승리!";
+                else if (naint ==66) return "6땡 vs 구사! 상대 승리!";
+                else if (naint ==55) return "5땡 vs 구사! 상대 승리!";
+                else if (naint ==44) return "4땡 vs 구사! 상대 승리!";
+                else if (naint ==33) return "3땡 vs 구사! 상대 승리!";
+                else if (naint ==22) return "2땡 vs 구사! 상대 승리!";
+                else if (naint ==11) return "1땡 vs 구사! 상대 승리!";
+                else 
+                    return "구사! 재경기!";
+            }
+
+
+
+
+
+
+
+            let na1 = Math.floor(naint/10);
+            let na2 = naint%10; 
+            let na3 = (na1+na2)%10
+
+            if (na3 == 1) naseoul = 28;
+            if (na3 == 2) naseoul = 27;
+            if (na3 == 3) naseoul = 26;
+            if (na3 == 4) naseoul = 25;
+            if (na3 == 5) naseoul = 24;
+            if (na3 == 6) naseoul = 23;
+            if (na3 == 7) naseoul = 22;
+            if (na3 == 8) naseoul = 21;
+            if (na3 == 9) naseoul = 20;
+            if (naint == 28 || naint == 82) naseoul = 29;
+
+
+            if (naint == 38) naseoul = 1;
+            if (naint == 18) naseoul = 2;
+            if (naint == 13) naseoul = 3;
+
+            if (naint == 100) naseoul = 4;
+            if (naint == 99) naseoul = 5;
+            if (naint == 88) naseoul = 6;
+            if (naint == 77) naseoul = 7;
+            if (naint == 66) naseoul = 8;
+            if (naint == 55) naseoul = 9;
+            if (naint == 44) naseoul = 10;
+            if (naint == 33) naseoul = 11;
+            if (naint == 22) naseoul = 12;
+            if (naint == 11) naseoul = 13;
+
+            if (naint == 12) naseoul = 14;
+            if (naint == 21) naseoul = 14;
+
+            if (naint == 14) naseoul = 15;
+            if (naint == 41) naseoul = 15;
+
+            if (naint == 19) naseoul = 16;
+            if (naint == 91) naseoul = 16;
+
+            if (naint == 1) naseoul = 17;
+            if (naint == 10) naseoul = 17;
+
+            if (naint == 4) naseoul = 18;
+            if (naint == 40) naseoul = 18;
+
+            if (naint == 46) naseoul = 19;
+            if (naint == 64) naseoul = 19;
+
+            if (naint == 47 || naint == 74 || naint == 37 || naint == 73 || naint == 49 || naint == 94) naseoul = 30;
+
+
+
+            let nu1 = Math.floor(nuint/10);
+            let nu2 = nuint%10; 
+            let nu3 = (nu1+nu2)%10
+
+            if (nu3 == 1) nuseoul = 28;
+            if (nu3 == 2) nuseoul = 27;
+            if (nu3 == 3) nuseoul = 26;
+            if (nu3 == 4) nuseoul = 25;
+            if (nu3 == 5) nuseoul = 24;
+            if (nu3 == 6) nuseoul = 23;
+            if (nu3 == 7) nuseoul = 22;
+            if (nu3 == 8) nuseoul = 21;
+            if (nu3 == 9) nuseoul = 20;
+            if (nuint == 28 || nuint == 82) nuseoul = 29;
+
+            
+
+
+
+            if (nuint == 38) nuseoul = 1;
+            if (nuint == 18) nuseoul = 2;
+            if (nuint == 13) nuseoul = 3;
+
+            if (nuint == 100) nuseoul = 4;
+            if (nuint == 99) nuseoul = 5;
+            if (nuint == 88) nuseoul = 6;
+            if (nuint == 77) nuseoul = 7;
+            if (nuint == 66) nuseoul = 8;
+            if (nuint == 55) nuseoul = 9;
+            if (nuint == 44) nuseoul = 10;
+            if (nuint == 33) nuseoul = 11;
+            if (nuint == 22) nuseoul = 12;
+            if (nuint == 11) nuseoul = 13;
+
+            if (nuint == 12) nuseoul = 14;
+            if (nuint == 21) nuseoul = 14;
+
+            if (nuint == 14) nuseoul = 15;
+            if (nuint == 41) nuseoul = 15;
+
+            if (nuint == 19) nuseoul = 16;
+            if (nuint == 91) nuseoul = 16;
+
+            if (nuint == 1) nuseoul = 17;
+            if (nuint == 10) nuseoul = 17;
+
+            if (nuint == 4) nuseoul = 18;
+            if (nuint == 40) nuseoul = 18;
+
+            if (nuint == 46) nuseoul = 19;
+            if (nuint == 64) nuseoul = 19;
+
+            if (nuint == 47 || nuint == 74 || nuint == 37 || nuint == 73 || nuint == 49 || nuint == 94) nuseoul = 30;
+            
+
+
+
+            let winner;
+            if (naseoul == nuseoul) winner='무승부!';
+            else if (naseoul < nuseoul) winner='나 승리!';
+            else if (naseoul > nuseoul) winner='상대 승리!';
+            else winner='어디서 에러가 낫지 싯팔';
+
+            if (naseoul == 1) naseoul = "삼팔광땡";
+            if (naseoul == 2) naseoul = "일팔광땡";
+            if (naseoul == 3) naseoul = "일삼광땡";
+            if (naseoul == 4) naseoul = "장땡";
+            if (naseoul == 5) naseoul = "9땡";
+            if (naseoul == 6) naseoul = "8땡";
+            if (naseoul == 7) naseoul = "7땡";
+            if (naseoul == 8) naseoul = "6땡";
+            if (naseoul == 9) naseoul = "5땡";
+            if (naseoul == 10) naseoul = "4땡";
+            if (naseoul == 11) naseoul = "3땡";
+            if (naseoul == 12) naseoul = "2땡";
+            if (naseoul == 13) naseoul = "1땡";
+            if (naseoul == 14) naseoul = "알리";
+            if (naseoul == 15) naseoul = "독사";
+            if (naseoul == 16) naseoul = "구삥";
+            if (naseoul == 17) naseoul = "장삥";
+            if (naseoul == 18) naseoul = "장사";
+            if (naseoul == 19) naseoul = "세륙";
+            if (naseoul == 20) naseoul = "갑오";
+            if (naseoul == 21) naseoul = "8끗";
+            if (naseoul == 22) naseoul = "7끗";
+            if (naseoul == 23) naseoul = "6끗";
+            if (naseoul == 24) naseoul = "5끗";
+            if (naseoul == 25) naseoul = "4끗";
+            if (naseoul == 26) naseoul = "3끗";
+            if (naseoul == 27) naseoul = "2끗";
+            if (naseoul == 28) naseoul = "1끗";
+            if (naseoul == 29) naseoul = "망통";
+            if (naseoul == 30 && (naint == 47 || naint == 74)) naseoul = "암행어사";
+            if (naseoul == 30 && (naint == 37 || naint == 73)) naseoul = "땡잡이";
+            if (naseoul == 30 && naint == 49 ) naseoul = "멍구사";
+            if (naseoul == 30 && naint == 94 ) naseoul = "구사";
+
+            if (nuseoul == 1) nuseoul = "삼팔광땡";
+            if (nuseoul == 2) nuseoul = "일팔광땡";
+            if (nuseoul == 3) nuseoul = "일삼광땡";
+            if (nuseoul == 4) nuseoul = "장땡";
+            if (nuseoul == 5) nuseoul = "9땡";
+            if (nuseoul == 6) nuseoul = "8땡";
+            if (nuseoul == 7) nuseoul = "7땡";
+            if (nuseoul == 8) nuseoul = "6땡";
+            if (nuseoul == 9) nuseoul = "5땡";
+            if (nuseoul == 10) nuseoul = "4땡";
+            if (nuseoul == 11) nuseoul = "3땡";
+            if (nuseoul == 12) nuseoul = "2땡";
+            if (nuseoul == 13) nuseoul = "1땡";
+            if (nuseoul == 14) nuseoul = "알리";
+            if (nuseoul == 15) nuseoul = "독사";
+            if (nuseoul == 16) nuseoul = "구삥";
+            if (nuseoul == 17) nuseoul = "장삥";
+            if (nuseoul == 18) nuseoul = "장사";
+            if (nuseoul == 19) nuseoul = "세륙";
+            if (nuseoul == 20) nuseoul = "갑오";
+            if (nuseoul == 21) nuseoul = "8끗";
+            if (nuseoul == 22) nuseoul = "7끗";
+            if (nuseoul == 23) nuseoul = "6끗";
+            if (nuseoul == 24) nuseoul = "5끗";
+            if (nuseoul == 25) nuseoul = "4끗";
+            if (nuseoul == 26) nuseoul = "3끗";
+            if (nuseoul == 27) nuseoul = "2끗";
+            if (nuseoul == 28) nuseoul = "1끗";
+            if (nuseoul == 29) nuseoul = "망통";
+            if (nuseoul == 30 && (nuint == 47 || nuint == 74)) nuseoul = "암행어사";
+            if (nuseoul == 30 && (nuint == 37 || nuint == 73)) nuseoul = "땡잡이";
+            if (nuseoul == 30 && nuint == 49 ) nuseoul = "멍구사";
+            if (nuseoul == 30 && nuint == 94 ) nuseoul = "구사";
+
+
+
+            return naseoul + ' vs ' + nuseoul + ", " + winner;
+
+        }
+
+
+	</script>
+</body>
+</html>
